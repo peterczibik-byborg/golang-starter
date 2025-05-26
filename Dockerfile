@@ -21,8 +21,7 @@ WORKDIR /app
 # Copy the built binary from the builder
 COPY --from=builder /app/main .
 
-# Copy static assets (dist)
-COPY dist/ ./dist/
+COPY static/ ./static/
 
 # Expose the application port
 EXPOSE 3030

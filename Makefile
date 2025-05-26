@@ -4,6 +4,6 @@ run:
 build:
 	templ generate && go build -o ./tmp/main ./src/main.go
 build-css:
-	tailwindcss -i ./src/css/index.css -o ./dist/css/index.css
+	tailwindcss -i ./src/css/index.css -o ./static/css/index.css
 build-css-watch:
-	tailwindcss -w ./src/css/index.css -o ./dist/css/index.css
+	tailwindcss -w ./src/css/index.css -o ./static/css/index.css
