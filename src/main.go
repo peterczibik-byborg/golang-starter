@@ -17,7 +17,7 @@ func root(w http.ResponseWriter, req *http.Request) {
 func main() {
 	http.HandleFunc("GET /", root)
 
-	http.Handle("GET /css/", http.StripPrefix("/", http.FileServer(http.Dir("./static"))))
+	http.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	http.ListenAndServe(":3030", nil)
 }

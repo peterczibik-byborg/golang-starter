@@ -1,5 +1,18 @@
+FROM node:22-bullseye AS node-builder
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+COPY vite.config.mjs tailwind.config.js ./
+
+COPY src/*.css ./src/
+
+RUN npm ci
+
+RUN npm run build
+
 # Start from the official Golang image for building
-FROM golang:1.24-bullseye AS builder
+FROM golang:1.24-bullseye AS golang-builder
 
 WORKDIR /app
 COPY go.mod go.sum ./
@@ -14,14 +27,12 @@ COPY templates/ ./templates/
 # Build the Go app
 RUN go build -o main ./src/main.go
 
-# Start a new minimal image for running
-FROM gcr.io/distroless/base-debian12
+FROM golang:1.24-bullseye
 WORKDIR /app
 
-# Copy the built binary from the builder
-COPY --from=builder /app/main .
-
-COPY static/ ./static/
+# Copy the built binary from the golang-builder
+COPY --from=golang-builder /app/main .
+COPY --from=node-builder /app/static ./static
 
 # Expose the application port
 EXPOSE 3030

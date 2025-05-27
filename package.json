@@ -1,0 +1,12 @@
+{
+  "name": "arthur",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.7",
+    "tailwindcss": "4.1.7",
+    "vite": "6.3.5"
+  }
+}
