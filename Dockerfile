@@ -6,6 +6,7 @@ COPY package.json package-lock.json ./
 COPY vite.config.mjs tailwind.config.js ./
 
 COPY src/*.css ./src/
+COPY templates/*.templ ./templates/
 
 RUN npm ci
 
