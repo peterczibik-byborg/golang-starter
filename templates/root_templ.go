@@ -29,7 +29,7 @@ func Root() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<html><head><link rel=\"stylesheet\" href=\"/css/index.css\"></head><body><div class=\"flex items-center justify-center h-screen w-screen\"><h1>Hello from templ!</h1><p>This is rendered using templi.</p></div></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<html><head><link rel=\"stylesheet\" href=\"/static/main.css\"></head><body><div class=\"flex items-center justify-center h-screen w-screen\"><h1>Hello from templ!</h1><p>This is rendered using templi.</p></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
