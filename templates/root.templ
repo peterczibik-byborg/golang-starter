@@ -5,12 +5,20 @@ templ Root() {
 
 <head>
   <link rel="stylesheet" href="/static/main.css">
+  <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body>
   <div class="flex items-center justify-center h-screen w-screen">
     <h1>Hello from templ!</h1>
-    <p>This is rendered using templi.</p>
+    <p>This is rendered using templites.</p>
+
+    <div x-data="{ open: false }">
+      <button @click="open = !open">Expand</button>
+      <span x-show="open">
+        Content...
+      </span>
+    </div>
   </div>
 </body>
 
