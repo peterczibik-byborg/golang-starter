@@ -6,6 +6,8 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.1.7",
+    "alpinejs": "3.14.9",
+    "htmx.org": "1.9.12",
     "tailwindcss": "4.1.7",
     "vite": "6.3.5"
   }

@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 COPY vite.config.mjs tailwind.config.js ./
 
-COPY src/*.css ./src/
+COPY src ./src/
 COPY templates/*.templ ./templates/
 
 RUN npm ci
@@ -28,7 +28,7 @@ COPY templates/ ./templates/
 # Build the Go app
 RUN go build -o main ./src/main.go
 
-FROM golang:1.24-bullseye
+FROM gcr.io/distroless/base-debian12
 WORKDIR /app
 
 # Copy the built binary from the golang-builder
